@@ -34,8 +34,8 @@ async def on_message(message):
   if msg.startswith('!ping'):
     await message.channel.send('pong')
   
-  elif msg.startswith('!'):
-    str = msg.split('!')
+  elif msg.startswith('!roll '):
+    str = msg.split('!roll ')
     res = None
     mod = 0
     
@@ -56,5 +56,8 @@ async def on_message(message):
       await message.channel.send('Oops')
     else:
       await message.channel.send(f'{res}')
+    
+  else:
+    await message.channel.send('Oops')
     
 client.run(os.environ['TOKEN'])
